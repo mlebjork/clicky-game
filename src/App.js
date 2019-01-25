@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-const images = [
-  { id: 1, src: 'https://via.placeholder.com/150?text=1' },
-  { id: 2, src: 'https://via.placeholder.com/150?text=2' },
-  { id: 3, src: 'https://via.placeholder.com/150?text=3' },
-  { id: 4, src: 'https://via.placeholder.com/150?text=4' },
-  { id: 5, src: 'https://via.placeholder.com/150?text=5' },
-  { id: 6, src: 'https://via.placeholder.com/150?text=6' },
-  { id: 7, src: 'https://via.placeholder.com/150?text=7' },
-  { id: 8, src: 'https://via.placeholder.com/150?text=8' },
-  { id: 9, src: 'https://via.placeholder.com/150?text=9' },
-  { id: 10, src: 'https://via.placeholder.com/150?text=10' },
-  { id: 11, src: 'https://via.placeholder.com/150?text=11' },
-  { id: 12, src: 'https://via.placeholder.com/150?text=12' },
+import images from './images.js';
 
-]
 function shuffleimages(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -47,9 +34,9 @@ class App extends Component {
         </header>
         <h1>{this.state.message}</h1>
         <h2>Click on an image to earn points, but don't click on the same image more than once!</h2>
-        <div>
+        <div className="images">
           {this.state.array.map((image) => {
-            return <img src={image.src} key={image.id} alt={image.title} onClick={
+            return <div  className={'image'} style={{backgroundImage: "url(" + image.src + ")"}} src={image.src} key={image.id} alt={image.title} onClick={
               () => {
                 console.log(image.id)
                 let newChosen = this.state.chosen
