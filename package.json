@@ -2,11 +2,8 @@
   "name": "clicky-game",
   "version": "0.1.0",
   "private": true,
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
-  "homepage": "http://mlebjork.github.io/clicky-game",
+  "homepage": "http://clicky-game-mlebjork.herokuapp.com/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
