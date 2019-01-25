@@ -1,4 +1,6 @@
-Check out out the game [here](https://mlebjork.github.io/clicky-game/.)This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Check out out the game [here](https://mlebjork.github.io/clicky-game/.)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
