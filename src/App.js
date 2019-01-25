@@ -46,7 +46,7 @@ class App extends Component {
         <header>
           <div><strong>Clicky game</strong></div>
           <div>Click an image</div>
-          <div>Score: 0 | Top Score: 0</div>
+          <div>Score: {this.state.chosen.length} | Top Score: 0</div>
         </header>
         <h1>{this.state.chosen}</h1>
         <div>
