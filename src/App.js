@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-const images =[
-  {id: 1, src: 'https://via.placeholder.com/150?text=1'},
-  {id: 2, src: 'https://via.placeholder.com/150?text=2'},
-  {id: 3, src: 'https://via.placeholder.com/150?text=3'},
-  {id: 4, src: 'https://via.placeholder.com/150?text=4'},
-  {id: 5, src: 'https://via.placeholder.com/150?text=5'},
-  {id: 6, src: 'https://via.placeholder.com/150?text=6'},
-  {id: 7, src: 'https://via.placeholder.com/150?text=7'},
-  {id: 8, src: 'https://via.placeholder.com/150?text=8'},
-  {id: 9, src: 'https://via.placeholder.com/150?text=9'},
-  {id: 10, src: 'https://via.placeholder.com/150?text=10'},
-  {id: 11, src: 'https://via.placeholder.com/150?text=11'},
-  {id: 12, src: 'https://via.placeholder.com/150?text=12'},
+const images = [
+  { id: 1, src: 'https://via.placeholder.com/150?text=1' },
+  { id: 2, src: 'https://via.placeholder.com/150?text=2' },
+  { id: 3, src: 'https://via.placeholder.com/150?text=3' },
+  { id: 4, src: 'https://via.placeholder.com/150?text=4' },
+  { id: 5, src: 'https://via.placeholder.com/150?text=5' },
+  { id: 6, src: 'https://via.placeholder.com/150?text=6' },
+  { id: 7, src: 'https://via.placeholder.com/150?text=7' },
+  { id: 8, src: 'https://via.placeholder.com/150?text=8' },
+  { id: 9, src: 'https://via.placeholder.com/150?text=9' },
+  { id: 10, src: 'https://via.placeholder.com/150?text=10' },
+  { id: 11, src: 'https://via.placeholder.com/150?text=11' },
+  { id: 12, src: 'https://via.placeholder.com/150?text=12' },
 
 ]
 function shuffleimages(array) {
@@ -28,19 +28,15 @@ let newImages = shuffleimages(images);
 console.log(newImages);
 
 
-class App extends Component { 
-  state={
-    array:shuffleimages(images),
-    chosen:[],
+class App extends Component {
+  state = {
+    array: shuffleimages(images),
+    chosen: [],
     score: 0,
     highScore: 0,
-    message:'Hi! Click!'
+    message: "Clicky Game!"
   }
-  // constructor(){  
-    // this.state={
-    //   array:shuffleimages(images)
-    // }
-  // }
+
   render() {
     return (
       <div className="App">
@@ -49,47 +45,30 @@ class App extends Component {
           <div>Click an image</div>
           <div>Score: {this.state.chosen.length} | Top Score: {this.state.highScore}</div>
         </header>
-        <h1>Clicky Game!</h1>
+        <h1>{this.state.message}</h1>
         <h2>Click on an image to earn points, but don't click on the same image more than once!</h2>
-        {/* <h1>{this.state.chosen}</h1> */}
-        <h2>{this.state.message}</h2>
-        {/* <h2>{this.state.score}</h2> */}
         <div>
-          {this.state.array.map((image)=>{
-            return  <img src={image.src} key={image.id} alt={image.title} onClick={
-              ()=>{
+          {this.state.array.map((image) => {
+            return <img src={image.src} key={image.id} alt={image.title} onClick={
+              () => {
                 console.log(image.id)
                 let newChosen = this.state.chosen
-                if(newChosen.indexOf(image.id) == -1) {
-                  this.setState({array:shuffleimages(images), 
+                if (newChosen.indexOf(image.id) == -1) {
+                  this.setState({
+                    array: shuffleimages(images),
                     chosen: newChosen.concat(image.id),
-                    score:this.state.score +1,
-                    highScore: this.state.score +1 > this.state.highScore ? this.state.score +1 :this.state.highScore,
-                    message: null
+                    score: this.state.score + 1,
+                    highScore: this.state.score + 1 > this.state.highScore ? this.state.score + 1 : this.state.highScore,
+                    message: "Keep playing!"
                   })
                 } else {
-                  this.setState({array:shuffleimages(images), chosen: [], score: 0, message:'you lost start again'})
-
-                  // alert('you lost')
+                  this.setState({ array: shuffleimages(images), chosen: [], score: 0, message: "You lost! Start again." })
                 }
               }
-            }/>
+            } />
           })}
         </div>
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
+
       </div>
     );
   }
