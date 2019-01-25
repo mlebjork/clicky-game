@@ -2,7 +2,7 @@
   "name": "clicky-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mlebjork.github.io/clicky-game",
+  "homepage": "http://clicky-game-mlebjork.herokuapp.com/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",
@@ -14,8 +14,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
