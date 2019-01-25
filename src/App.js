@@ -28,7 +28,18 @@ let newImages = shuffleimages(images);
 console.log(newImages);
 
 
-class App extends Component {
+class App extends Component { 
+  state={
+    array:shuffleimages(images),
+    chosen:[],
+    score: 0,
+    highScore: 0,
+  }
+  // constructor(){  
+    // this.state={
+    //   array:shuffleimages(images)
+    // }
+  // }
   render() {
     return (
       <div className="App">
@@ -37,11 +48,18 @@ class App extends Component {
           <div>Click an image</div>
           <div>Score: 0 | Top Score: 0</div>
         </header>
+        <h1>{this.state.chosen}</h1>
         <div>
-          {images.map((image)=>{
+          {this.state.array.map((image)=>{
             return  <img src={image.src} key={image.id} alt={image.title} onClick={
               ()=>{
                 console.log(image.id)
+                let newChosen = this.state.chosen
+                if(newChosen.indexOf(image.id) == -1) {
+                  this.setState({array:shuffleimages(images), chosen: newChosen.concat(image.id) })
+                } else {
+                  alert('you lost')
+                }
               }
             }/>
           })}
