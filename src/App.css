@@ -1,4 +1,21 @@
-.App {
+header {
+  background: red;
+  height: 80px;
+}
+header div {
+  float: left;
+  width: 30%;
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  padding: 26px 0;
+}
+img {
+  padding: 10px 60px;
+}
+
+
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +46,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
