@@ -34,6 +34,7 @@ class App extends Component {
     chosen:[],
     score: 0,
     highScore: 0,
+    message:'Hi! Click!'
   }
   // constructor(){  
     // this.state={
@@ -46,9 +47,13 @@ class App extends Component {
         <header>
           <div><strong>Clicky game</strong></div>
           <div>Click an image</div>
-          <div>Score: {this.state.chosen.length} | Top Score: 0</div>
+          <div>Score: {this.state.chosen.length} | Top Score: {this.state.highScore}</div>
         </header>
-        <h1>{this.state.chosen}</h1>
+        <h1>Clicky Game!</h1>
+        <h2>Click on an image to earn points, but don't click on the same image more than once!</h2>
+        {/* <h1>{this.state.chosen}</h1> */}
+        <h2>{this.state.message}</h2>
+        {/* <h2>{this.state.score}</h2> */}
         <div>
           {this.state.array.map((image)=>{
             return  <img src={image.src} key={image.id} alt={image.title} onClick={
@@ -56,9 +61,16 @@ class App extends Component {
                 console.log(image.id)
                 let newChosen = this.state.chosen
                 if(newChosen.indexOf(image.id) == -1) {
-                  this.setState({array:shuffleimages(images), chosen: newChosen.concat(image.id) })
+                  this.setState({array:shuffleimages(images), 
+                    chosen: newChosen.concat(image.id),
+                    score:this.state.score +1,
+                    highScore: this.state.score +1 > this.state.highScore ? this.state.score +1 :this.state.highScore,
+                    message: null
+                  })
                 } else {
-                  alert('you lost')
+                  this.setState({array:shuffleimages(images), chosen: [], score: 0, message:'you lost start again'})
+
+                  // alert('you lost')
                 }
               }
             }/>
